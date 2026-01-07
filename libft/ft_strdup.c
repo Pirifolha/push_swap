@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: misousa <misousa@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:46:07 by misousa           #+#    #+#             */
-/*   Updated: 2025/10/28 13:21:10 by misousa          ###   ########.fr       */
+/*   Updated: 2025/12/04 18:43:13 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,15 @@ char	*ft_strdup(char *s)
 	return (dest);
 }
 
-/* int	main(void)
+int	main(void)
 {
 	char *src = "saddsadsadsa";
 
 	char *dest;
 
+	dest = NULL;
+
 	dest = ft_strdup(src);
 
 	printf("%s\n", dest);
-} */
+}

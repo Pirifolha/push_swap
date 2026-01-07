@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: misousa <misousa@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:08:02 by misousa           #+#    #+#             */
-/*   Updated: 2025/11/12 18:12:42 by misousa          ###   ########.fr       */
+/*   Updated: 2025/12/01 19:14:24 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (result);
 }
 
-/* int	main(void)
+int	main(void)
 {
 	char *s2;
 	char *result;
@@ -71,4 +71,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	printf("%s\n", result);
 	free(result);
-} */
+}
