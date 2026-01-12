@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
+/*   By: misousa <misousa@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:30:29 by miguelsousa       #+#    #+#             */
-/*   Updated: 2026/01/12 14:50:05 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/01/12 17:58:11 by misousa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ lst *push_b(lst *top_a, lst *top_b)
     top_b->data = top_a->data;
     top_a = top_a->next;
 
+	ft_printf("pb");
     return (top_b);
 }
 
