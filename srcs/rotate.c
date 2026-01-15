@@ -1,47 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 15:30:29 by miguelsousa       #+#    #+#             */
-/*   Updated: 2026/01/15 16:03:17 by miguelsousa      ###   ########.fr       */
+/*   Created: 2026/01/15 16:40:37 by miguelsousa       #+#    #+#             */
+/*   Updated: 2026/01/15 17:05:03 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./pushswap.h"
 
-void	push_b(lst **top_a, lst **top_b)
+void	rotate_a(lst **top_a)
 {
-	lst	*new_head_b;
-	lst	*new_head_a;
+	lst	*last;
+	lst	*head;
 
-	if (*top_a != NULL)
+	last = *top_a;
+	*top_a = (*top_a)->next;
+	head = *top_a;
+	while ((*top_a))
 	{
-		new_head_b = *top_a;
-		new_head_a = (*top_a)->next;
-		new_head_b->next = *top_b;
-		*top_b = new_head_b;
-		*top_a = new_head_a;
-		ft_printf("pb\n");
+		if (!(*top_a)->next)
+		{
+			(*top_a)->next = last;
+			last->next = NULL;
+		}
+		*top_a = (*top_a)->next;
 	}
+	*top_a = head;
+}
+void	rotate_b(lst **top_b)
+{
+	lst	*last;
+	lst	*head;
+
+	last = *top_b;
+	*top_b = (*top_b)->next;
+	head = *top_b;
+	while ((*top_b))
+	{
+		if (!(*top_b)->next)
+		{
+			(*top_b)->next = last;
+			last->next = NULL;
+		}
+		*top_b = (*top_b)->next;
+	}
+	*top_b = head;
 }
 
-void	push_a(lst **top_a, lst **top_b)
+void	rotate_both(lst **top_a, lst **top_b)
 {
-	lst	*new_head_b;
-	lst	*new_head_a;
-
-	if (*top_b != NULL)
-	{
-		new_head_a = *top_b;
-		new_head_b = (*top_b)->next;
-		new_head_a->next = *top_a;
-		*top_a = new_head_a;
-		*top_b = new_head_b;
-		ft_printf("pa\n");
-	}
+	rotate_a(&*top_a);
+	rotate_b(&*top_b);
 }
 
 /* int	main(void)
@@ -74,9 +87,15 @@ void	push_a(lst **top_a, lst **top_b)
 	midb->data = 5;
 	lastb->data = 6;
 
-	ft_printf("Top_a: %d\n", head->data);
-	ft_printf("Top_b: %d\n", headb->data);
-	push_a(&head, &headb);
-	ft_printf("new_Top_a: %d\n", head->data);
-	ft_printf("new_Top_b: %d\n", headb->data);
+	rotate_both(&head, &headb);
+	while (head)
+	{
+		ft_printf("new_Top_a: %d\n", head->data);
+		head = head->next;
+	}
+	while (headb)
+	{
+		ft_printf("new_Top_b: %d\n", headb->data);
+		headb = headb->next;
+	}
 } */

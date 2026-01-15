@@ -8,7 +8,7 @@ PRINTF = ft_printf/libftprintf.a
 
 INCLUDES = -I. -Ilibft -Ift_printf
 
-SRCS =	push_swap.c srcs/swap.c srcs/push.c
+SRCS =	push_swap.c srcs/swap.c srcs/push.c srcs/rotate.c
 
 OBJS = $(SRCS:.c=.o)
 
