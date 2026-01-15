@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 16:40:37 by miguelsousa       #+#    #+#             */
-/*   Updated: 2026/01/15 17:05:03 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/01/15 17:12:27 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	rotate_a(lst **top_a)
 		*top_a = (*top_a)->next;
 	}
 	*top_a = head;
+    ft_printf("ra");
 }
 void	rotate_b(lst **top_b)
 {
@@ -49,6 +50,7 @@ void	rotate_b(lst **top_b)
 		*top_b = (*top_b)->next;
 	}
 	*top_b = head;
+    ft_printf("rb");
 }
 
 void	rotate_both(lst **top_a, lst **top_b)

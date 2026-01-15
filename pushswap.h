@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 13:47:57 by miguelsousa       #+#    #+#             */
-/*   Updated: 2026/01/15 17:05:36 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/01/15 17:33:27 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	push_a(lst **top_a, lst **top_b);
 void	rotate_b(lst **top_b);
 void	rotate_a(lst **top_a);
 void	rotate_both(lst **top_a, lst **top_b);
-
+void	rrotate_a(lst **top_a);
+void	rrotate_b(lst **top_b);
+void	rrotate_both(lst **top_a, lst **top_b);
 
 #endif
