@@ -3,65 +3,88 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: misousa <misousa@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:45:47 by misousa           #+#    #+#             */
-/*   Updated: 2026/01/21 20:55:28 by misousa          ###   ########.fr       */
+/*   Updated: 2026/01/22 22:00:37 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./pushswap.h"
 
-int is_multnbr(char **argv)
+// check for more than 1 num
+
+int	is_multnbr(char **argv)
 {
-    int i;
-    int j;
-    int count;
+	int	i;
+	int	j;
+	int	count;
 
-    i = 0;
-    count = 0;
-
-    while (argv[i])
-    {
-        j = 0;
-        while (argv[i][j])
-        {
-            if(ft_isdigit(argv[i][j]))
-                count++;
-            j++;
-        }
-        i++;
-    }
-
-    if(count < 2)
-        return 0;
-    else
-        return 1;
+	i = 1;
+	count = 0;
+	while (argv[i])
+	{
+		j = 0;
+		while (argv[i][j])
+		{
+			while (ft_isdigit(argv[i][j]))
+			{
+				if (ft_isdigit(argv[i][j]) && (argv[i][j + 1] == 32 || argv[i][j
+						+ 1] == 0))
+					count++;
+				j++;
+			}
+			if (argv[i][j] == 0)
+				break ;
+			j++;
+		}
+		i++;
+	}
+	return (count);
 }
+// check for alpha char
 
-//doesnt work for double digit numbers
-
-int is_nbr(char **argv)
+int	is_nbr(char **argv)
 {
-    int i;
-    int j;
-    int alpha;
+	int	i;
+	int	j;
 
-    i = 0;
-    alpha = 0;
-    while (argv[i])
-    {
-        j = 0;
-        while (argv[i][j])
-        {
-            if(ft_isalpha(argv[i][j]) == 1)
-                alpha = 1;
-            j++;
-        }
-        i++;
-    }
-    
-    return alpha;
+	i = 1;
+	while (argv[i])
+	{
+		j = 0;
+		while (argv[i][j])
+		{
+			if (ft_isalpha(argv[i][j]) == 1)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
+//doesnt work for for 0x cases
 
-//doesnt work at all
+int	is_rep_nbr(char **argv)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	j = 1;
+	while (argv[j])
+	{
+		i = j + 1;
+		k = 0;
+		while (argv[i])
+		{
+			while (argv[j][k] == argv[i][k] && (argv[j][k] && argv[i][k]))
+				k++;
+			if (argv[j][k] == argv[i][k])
+				return (0);
+			i++;
+		}
+		j++;
+	}
+	return (1);
+}

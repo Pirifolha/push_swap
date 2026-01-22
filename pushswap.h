@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: misousa <misousa@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 13:47:57 by miguelsousa       #+#    #+#             */
-/*   Updated: 2026/01/21 20:35:22 by misousa          ###   ########.fr       */
+/*   Updated: 2026/01/22 21:33:23 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	rrotate_b(lst **top_b);
 void	rrotate_both(lst **top_a, lst **top_b);
 int is_multnbr(char **argv);
 int is_nbr(char **argv);
+int	is_rep_nbr(char **argv);
 
 #endif
