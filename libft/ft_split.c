@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: misousa <misousa@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:54:19 by misousa           #+#    #+#             */
-/*   Updated: 2025/11/12 18:19:37 by misousa          ###   ########.fr       */
+/*   Updated: 2026/02/02 20:37:02 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,8 +128,8 @@ char	**ft_split(char const *s, char c)
 	char **res;
 	int words;
 
-	words = count_words("^^^1^^2a,^^^^3^^^^--h^^^^", '^');
-	res = ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", '^');
+	words = count_words("1 3 4 5 7", ' ');
+	res = ft_split("1 3 4 5 7", ' ');
 
 	printf("%d\n", words);
 	for (int i = 0; i < words; i++)

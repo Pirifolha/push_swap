@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:06:02 by misousa           #+#    #+#             */
-/*   Updated: 2026/01/08 14:03:42 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/01/23 19:22:38 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <unistd.h>
 
 int					ft_atoi(const char *str);
+long				ft_atol(char *nptr);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t nmemb, size_t size);
 int					ft_isalnum(int c);

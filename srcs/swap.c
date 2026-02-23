@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 15:35:04 by miguelsousa       #+#    #+#             */
-/*   Updated: 2026/01/15 17:01:17 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/18 18:43:14 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,6 @@ void	swap_both(lst **top_a, lst **top_b)
 		ft_printf("new_Top_b: %d\n", headb->data);
 		headb = headb->next;
 	}
-	
-	
+
+
 } */

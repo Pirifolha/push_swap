@@ -6,56 +6,85 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:45:47 by misousa           #+#    #+#             */
-/*   Updated: 2026/01/22 22:00:37 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/18 18:15:30 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./pushswap.h"
 
-// check for more than 1 num
-
-int	is_multnbr(char **argv)
+static void	free_mem(char **result)
 {
 	int	i;
-	int	j;
-	int	count;
+
+	i = 0;
+	if (!result)
+		return ;
+	while (result[i])
+	{
+		free(result[i]);
+		i++;
+	}
+	free(result);
+}
+
+int	invalid_and_count(int argc, char **argv)
+{
+	int		i;
+	int		j;
+	int		count;
+	char	**temp;
 
 	i = 1;
 	count = 0;
-	while (argv[i])
+	while (i < argc)
 	{
 		j = 0;
-		while (argv[i][j])
+		temp = ft_split(argv[i], ' ');
+		if (!temp)
+			return (ft_printf("Error\n"), 0);
+		while (temp[j])
 		{
-			while (ft_isdigit(argv[i][j]))
-			{
-				if (ft_isdigit(argv[i][j]) && (argv[i][j + 1] == 32 || argv[i][j
-						+ 1] == 0))
-					count++;
-				j++;
-			}
-			if (argv[i][j] == 0)
-				break ;
-			j++;
+			if (is_nbr(temp[j++]))
+				count++;
+			else
+				return (free_mem(temp), ft_printf("Error\n"), 0);
 		}
+		free_mem(temp);
 		i++;
 	}
 	return (count);
 }
 // check for alpha char
 
-int	is_nbr(char **argv)
+int	is_nbr(char *temp)
+{
+	int	i;
+
+	i = 0;
+	if (temp[i] == '+' || temp[i] == '-')
+		i++;
+	if (temp[i] == 0)
+		return (0);
+	while (temp[i])
+	{
+		if (!ft_isdigit(temp[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+int	repeatn_and_minmax(int count, int *res)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	while (argv[i])
+	i = 0;
+	while (i < count)
 	{
-		j = 0;
-		while (argv[i][j])
+		j = i + 1;
+		while (j < count)
 		{
-			if (ft_isalpha(argv[i][j]) == 1)
+			if (res[i] == res[j])
 				return (0);
 			j++;
 		}
@@ -63,28 +92,52 @@ int	is_nbr(char **argv)
 	}
 	return (1);
 }
-//doesnt work for for 0x cases
 
-int	is_rep_nbr(char **argv)
+int	convert(int argc, char **argv, int *res)
 {
-	int	i;
-	int	j;
-	int	k;
+	int		i;
+	int		j;
+	int		k;
+	char	**temp;
+	long	nb;
 
-	j = 1;
-	while (argv[j])
+	i = 1;
+	k = 0;
+	while (i < argc)
 	{
-		i = j + 1;
-		k = 0;
-		while (argv[i])
+		j = 0;
+		temp = ft_split(argv[i], ' ');
+		if (!temp)
+			return (ft_printf("Error\n"), 0);
+		while (temp[j])
 		{
-			while (argv[j][k] == argv[i][k] && (argv[j][k] && argv[i][k]))
-				k++;
-			if (argv[j][k] == argv[i][k])
-				return (0);
-			i++;
+			nb = ft_atol(temp[j]);
+			if (nb > INT_MAX || nb < INT_MIN)
+				return (free_mem(temp), ft_printf("Error\n"), 0);
+			res[k++] = ft_atol(temp[j++]);
 		}
-		j++;
+		free_mem(temp);
+		i++;
 	}
 	return (1);
+}
+
+int	*parser_check(int argc, char **argv)
+{
+	int	i;
+	int	count;
+	int	*res;
+
+	count = invalid_and_count(argc, argv);
+	if (count == 0)
+		return (0);
+	res = malloc(count * sizeof(int));
+	if (!res)
+		return (ft_printf("Error\n"), NULL);
+	i = convert(argc, argv, res);
+	if (!i)
+		return (free(res), NULL);
+	if (!repeatn_and_minmax(count, res))
+		return (free(res), ft_printf("Error\n"), NULL);
+	return (res);
 }
