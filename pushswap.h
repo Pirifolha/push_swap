@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 13:47:57 by miguelsousa       #+#    #+#             */
-/*   Updated: 2026/02/18 18:15:10 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/23 21:10:39 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ int					is_rep_nbr(char **argv);
 int					*parser_check(int argc, char **argv);
 void				sort_three(lst **top_a);
 void				sort_two(lst **top_a);
+void				sort_four(lst **top_a, lst **top_b);
+void				sort_five(lst **top_a, lst **top_b);
 
 #endif

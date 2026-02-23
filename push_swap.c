@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:50:08 by misousa           #+#    #+#             */
-/*   Updated: 2026/02/18 18:39:58 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/23 21:23:54 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,44 +16,53 @@ int	main(int argc, char **argv)
 {
 	int *res;
 
-	if (argc > 0)
+	if (argc > 1)
 	{
 		res = parser_check(argc, argv);
 		lst *head = NULL;
+		lst *sec = NULL;
 		lst *mid = NULL;
+        lst *slast = NULL;
 		lst *last = NULL;
-        lst *headb = NULL;
-		lst *midb = NULL;
-		lst *lastb = NULL;
+        lst **top_b = NULL;
 
 		head = malloc(sizeof(lst));
+		sec = malloc(sizeof(lst));
 		mid = malloc(sizeof(lst));
+        slast = malloc(sizeof(lst));
 		last = malloc(sizeof(lst));
-        headb = malloc(sizeof(lst));
-		midb = malloc(sizeof(lst));
-		lastb = malloc(sizeof(lst));
+        top_b = malloc(sizeof(lst *));
 
-		head->next = mid;
-		mid->next = last;
+		head->next = sec;
+		sec->next = mid;
+		mid->next = slast;
+        slast->next = last;
 		last->next = NULL;
-        headb->next = mid;
-		midb->next = last;
-		lastb->next = NULL;
 
 		head->data = res[0];
-		mid->data = res[1];
-		last->data = res[2];
-        headb->data = res[0];
-		midb->data = res[1];
-		lastb->data = res[2];
+		sec->data = res[1];
+		mid->data = res[2];
+		slast->data = res[3];
+        last->data = res[4];
 
-		while (head)
-        {
-            ft_printf("Before sort: %i\n", head->data);
-            head = head->next;
-        }
+		lst *tmp = head;
+        ft_printf("Before: ");
+		while (tmp)
+		{
+			ft_printf("%i ", tmp->data);
+			tmp = tmp->next;
+		}
+		ft_printf("\n");
 
-        sort_three(&headb);
-        
+		sort_five(&head, top_b);
+
+		tmp = head;
+        ft_printf("After: ");
+		while (tmp)
+		{
+			ft_printf("%i ", tmp->data);
+			tmp = tmp->next;
+		}
+		ft_printf("\n");
 	}
 }
