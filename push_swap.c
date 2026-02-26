@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:50:08 by misousa           #+#    #+#             */
-/*   Updated: 2026/02/23 21:23:54 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/25 19:03:26 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,24 +45,25 @@ int	main(int argc, char **argv)
 		slast->data = res[3];
         last->data = res[4];
 
-		lst *tmp = head;
+	/* 	lst *tmp = head;
         ft_printf("Before: ");
 		while (tmp)
 		{
 			ft_printf("%i ", tmp->data);
 			tmp = tmp->next;
 		}
-		ft_printf("\n");
+		ft_printf("\n"); */
 
-		sort_five(&head, top_b);
 
-		tmp = head;
+		radix_sort(&head, top_b);
+
+		/* tmp = head;
         ft_printf("After: ");
 		while (tmp)
 		{
 			ft_printf("%i ", tmp->data);
 			tmp = tmp->next;
 		}
-		ft_printf("\n");
+		ft_printf("\n"); */
 	}
 }

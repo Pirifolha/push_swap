@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 13:47:57 by miguelsousa       #+#    #+#             */
-/*   Updated: 2026/02/23 21:10:39 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/25 19:00:04 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct s_lst
 {
 	int				data;
+	int				index;
 	struct s_lst	*next;
 }					lst;
 
@@ -37,6 +38,7 @@ int					is_multnbr(char **argv);
 int					is_nbr(char *temp);
 int					is_rep_nbr(char **argv);
 int					*parser_check(int argc, char **argv);
+void				radix_sort(lst **top_a, lst **top_b);
 void				sort_three(lst **top_a);
 void				sort_two(lst **top_a);
 void				sort_four(lst **top_a, lst **top_b);
