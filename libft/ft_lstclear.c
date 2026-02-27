@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 14:14:16 by miguelsousa       #+#    #+#             */
-/*   Updated: 2025/12/27 14:25:22 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/27 16:15:22 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *temp;
+	t_list	*temp;
 
 	while (*lst)
 	{
@@ -22,6 +22,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		ft_lstdelone(*lst, del);
 		*lst = temp;
 	}
-    free(*lst);
+	free(*lst);
 	*lst = NULL;
 }

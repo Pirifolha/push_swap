@@ -6,64 +6,89 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:50:08 by misousa           #+#    #+#             */
-/*   Updated: 2026/02/25 19:03:26 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/27 18:17:48 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+static void	create_list(t_lst **top_a, int *res, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		add_back(top_a, new_node(res[i]));
+		i++;
+	}
+}
+
+static int	is_in_order(t_lst **top_a)
+{
+	t_lst	*tmp;
+
+	tmp = (*top_a);
+	while (tmp->next)
+	{
+		if (tmp->data > tmp->next->data)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+static int	choose_algorithm(t_lst **top_a, t_lst **top_b, int size)
+{
+	if (is_in_order(top_a))
+		return (0);
+	if (size == 2)
+		sort_two(top_a);
+	else if (size == 3)
+		sort_three(top_a);
+	else if (size <= 5)
+		sort_five(top_a, top_b);
+	else
+		radix_sort(top_a, top_b);
+	return (0);
+}
+
+static void	free_stack(t_lst **stack)
+{
+	t_lst	*tmp;
+	t_lst	*next;
+
+	if (!stack || !*stack)
+		return ;
+	tmp = *stack;
+	while (tmp)
+	{
+		next = tmp->next;
+		free(tmp);
+		tmp = next;
+	}
+	*stack = NULL;
+}
+
 int	main(int argc, char **argv)
 {
-	int *res;
+	int		*res;
+	int		size;
+	t_lst	*top_a;
+	t_lst	*top_b;
 
-	if (argc > 1)
+	top_a = NULL;
+	top_b = NULL;
+	if (argc > 2)
 	{
 		res = parser_check(argc, argv);
-		lst *head = NULL;
-		lst *sec = NULL;
-		lst *mid = NULL;
-        lst *slast = NULL;
-		lst *last = NULL;
-        lst **top_b = NULL;
-
-		head = malloc(sizeof(lst));
-		sec = malloc(sizeof(lst));
-		mid = malloc(sizeof(lst));
-        slast = malloc(sizeof(lst));
-		last = malloc(sizeof(lst));
-        top_b = malloc(sizeof(lst *));
-
-		head->next = sec;
-		sec->next = mid;
-		mid->next = slast;
-        slast->next = last;
-		last->next = NULL;
-
-		head->data = res[0];
-		sec->data = res[1];
-		mid->data = res[2];
-		slast->data = res[3];
-        last->data = res[4];
-
-	/* 	lst *tmp = head;
-        ft_printf("Before: ");
-		while (tmp)
-		{
-			ft_printf("%i ", tmp->data);
-			tmp = tmp->next;
-		}
-		ft_printf("\n"); */
-
-
-		radix_sort(&head, top_b);
-
-		/* tmp = head;
-        ft_printf("After: ");
-		while (tmp)
-		{
-			ft_printf("%i ", tmp->data);
-			tmp = tmp->next;
-		}
-		ft_printf("\n"); */
+		if (!res)
+			return (1);
+		size = invalid_and_count(argc, argv);
+		create_list(&top_a, res, size);
+		free(res);
+		choose_algorithm(&top_a, &top_b, size);
+		free_stack(&top_a);
+		free_stack(&top_b);
 	}
 }

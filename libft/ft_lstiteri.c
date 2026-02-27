@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 14:26:39 by miguelsousa       #+#    #+#             */
-/*   Updated: 2025/12/27 14:29:47 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/27 16:14:47 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	while (lst)
 	{
 		f(lst->content);
-
 		lst = lst->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:46:07 by misousa           #+#    #+#             */
-/*   Updated: 2025/12/04 18:43:13 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/27 16:14:32 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,4 @@ char	*ft_strdup(char *s)
 		return (0);
 	ft_strcpy(dest, s);
 	return (dest);
-}
-
-int	main(void)
-{
-	char *src = "saddsadsadsa";
-
-	char *dest;
-
-	dest = NULL;
-
-	dest = ft_strdup(src);
-
-	printf("%s\n", dest);
 }

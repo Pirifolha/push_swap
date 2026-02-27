@@ -6,26 +6,11 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:45:47 by misousa           #+#    #+#             */
-/*   Updated: 2026/02/18 18:15:30 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/27 17:41:15 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./pushswap.h"
-
-static void	free_mem(char **result)
-{
-	int	i;
-
-	i = 0;
-	if (!result)
-		return ;
-	while (result[i])
-	{
-		free(result[i]);
-		i++;
-	}
-	free(result);
-}
 
 int	invalid_and_count(int argc, char **argv)
 {
@@ -54,7 +39,6 @@ int	invalid_and_count(int argc, char **argv)
 	}
 	return (count);
 }
-// check for alpha char
 
 int	is_nbr(char *temp)
 {
@@ -73,7 +57,8 @@ int	is_nbr(char *temp)
 	}
 	return (1);
 }
-int	repeatn_and_minmax(int count, int *res)
+
+static int	repeatn_and_minmax(int count, int *res)
 {
 	int	i;
 	int	j;
@@ -93,7 +78,7 @@ int	repeatn_and_minmax(int count, int *res)
 	return (1);
 }
 
-int	convert(int argc, char **argv, int *res)
+static int	convert(int argc, char **argv, int *res)
 {
 	int		i;
 	int		j;

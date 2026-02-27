@@ -6,16 +6,16 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 22:14:03 by miguelsousa       #+#    #+#             */
-/*   Updated: 2026/02/23 21:23:39 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/27 16:12:40 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./pushswap.h"
 
-static void	find_n_sortmin(lst **top_a)
+static void	find_n_sortmin(t_lst **top_a)
 {
-	lst	*head;
-	lst	*next;
+	t_lst	*head;
+	t_lst	*next;
 
 	head = (*top_a);
 	next = (*top_a)->next;
@@ -41,13 +41,13 @@ static void	find_n_sortmin(lst **top_a)
 	}
 }
 
-void	sort_two(lst **top_a)
+void	sort_two(t_lst **top_a)
 {
 	if ((*top_a)->data > (*top_a)->next->data)
 		swap_a(top_a);
 }
 
-void	sort_three(lst **top_a)
+void	sort_three(t_lst **top_a)
 {
 	if ((*top_a)->data > (*top_a)->next->data)
 		swap_a(top_a);
@@ -57,10 +57,10 @@ void	sort_three(lst **top_a)
 		swap_a(top_a);
 }
 
-void	sort_four(lst **top_a, lst **top_b)
+void	sort_four(t_lst **top_a, t_lst **top_b)
 {
-	lst	*head;
-	lst	*next;
+	t_lst	*head;
+	t_lst	*next;
 
 	head = (*top_a);
 	next = (*top_a)->next;
@@ -84,7 +84,7 @@ void	sort_four(lst **top_a, lst **top_b)
 	push_a(top_a, top_b);
 }
 
-void	sort_five(lst **top_a, lst **top_b)
+void	sort_five(t_lst **top_a, t_lst **top_b)
 {
 	find_n_sortmin(top_a);
 	push_b(top_a, top_b);

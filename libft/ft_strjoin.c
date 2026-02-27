@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:08:02 by misousa           #+#    #+#             */
-/*   Updated: 2025/12/01 19:14:24 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/27 16:15:06 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	result = ft_strcpy(result, s1);
 	result = ft_strcat(result, s2);
 	return (result);
-}
-
-int	main(void)
-{
-	char *s2;
-	char *result;
-
-	s2 = "def134g";
-	result = ft_strjoin(NULL, s2);
-
-	printf("%s\n", result);
-	free(result);
 }

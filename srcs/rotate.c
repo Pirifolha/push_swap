@@ -6,16 +6,16 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 16:40:37 by miguelsousa       #+#    #+#             */
-/*   Updated: 2026/02/26 23:09:15 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/27 16:12:14 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./pushswap.h"
 
-void	rotate_a(lst **top_a)
+void	rotate_a(t_lst **top_a)
 {
-	lst	*last;
-	lst	*head;
+	t_lst	*last;
+	t_lst	*head;
 
 	last = *top_a;
 	*top_a = (*top_a)->next;
@@ -33,10 +33,10 @@ void	rotate_a(lst **top_a)
 	ft_printf("ra\n");
 }
 
-void	rotate_b(lst **top_b)
+void	rotate_b(t_lst **top_b)
 {
-	lst	*last;
-	lst	*head;
+	t_lst	*last;
+	t_lst	*head;
 
 	last = *top_b;
 	*top_b = (*top_b)->next;
@@ -54,7 +54,7 @@ void	rotate_b(lst **top_b)
 	ft_printf("rb");
 }
 
-void	rotate_both(lst **top_a, lst **top_b)
+void	rotate_both(t_lst **top_a, t_lst **top_b)
 {
 	rotate_a(&*top_a);
 	rotate_b(&*top_b);
