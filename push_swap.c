@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:50:08 by misousa           #+#    #+#             */
-/*   Updated: 2026/02/27 18:17:48 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/27 18:44:52 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static int	choose_algorithm(t_lst **top_a, t_lst **top_b, int size)
 		sort_two(top_a);
 	else if (size == 3)
 		sort_three(top_a);
+	else if (size == 4)
+		sort_four(top_a, top_b);
 	else if (size <= 5)
 		sort_five(top_a, top_b);
 	else
@@ -79,7 +81,7 @@ int	main(int argc, char **argv)
 
 	top_a = NULL;
 	top_b = NULL;
-	if (argc > 2)
+	if (argc > 1)
 	{
 		res = parser_check(argc, argv);
 		if (!res)

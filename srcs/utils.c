@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 00:02:09 by miguelsousa       #+#    #+#             */
-/*   Updated: 2026/02/27 18:05:48 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/02/27 18:55:51 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	bubble_sort(int *temp, int size)
 		}
 	}
 }
+
 t_lst	*new_node(int value)
 {
 	t_lst	*node;
@@ -64,7 +65,7 @@ t_lst	*new_node(int value)
 
 void	add_back(t_lst **top_a, t_lst *new)
 {
-	t_lst *tmp;
+	t_lst	*tmp;
 
 	if (!new)
 		return ;
