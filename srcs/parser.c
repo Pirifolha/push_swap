@@ -6,7 +6,7 @@
 /*   By: miguelsousa <miguelsousa@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:45:47 by misousa           #+#    #+#             */
-/*   Updated: 2026/02/27 17:41:15 by miguelsousa      ###   ########.fr       */
+/*   Updated: 2026/03/06 16:32:12 by miguelsousa      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int	invalid_and_count(int argc, char **argv)
 		j = 0;
 		temp = ft_split(argv[i], ' ');
 		if (!temp)
-			return (ft_printf("Error\n"), 0);
+			return (ft_putstr_fd("Error\n", 2), 0);
 		while (temp[j])
 		{
 			if (is_nbr(temp[j++]))
 				count++;
 			else
-				return (free_mem(temp), ft_printf("Error\n"), 0);
+				return (free_mem(temp), ft_putstr_fd("Error\n", 2), 0);
 		}
 		free_mem(temp);
 		i++;
@@ -93,12 +93,12 @@ static int	convert(int argc, char **argv, int *res)
 		j = 0;
 		temp = ft_split(argv[i], ' ');
 		if (!temp)
-			return (ft_printf("Error\n"), 0);
+			return (ft_putstr_fd("Error\n", 2), 0);
 		while (temp[j])
 		{
 			nb = ft_atol(temp[j]);
 			if (nb > INT_MAX || nb < INT_MIN)
-				return (free_mem(temp), ft_printf("Error\n"), 0);
+				return (free_mem(temp), ft_putstr_fd("Error\n", 2), 0);
 			res[k++] = ft_atol(temp[j++]);
 		}
 		free_mem(temp);
@@ -118,11 +118,11 @@ int	*parser_check(int argc, char **argv)
 		return (0);
 	res = malloc(count * sizeof(int));
 	if (!res)
-		return (ft_printf("Error\n"), NULL);
+		return (ft_putstr_fd("Error\n", 2), NULL);
 	i = convert(argc, argv, res);
 	if (!i)
 		return (free(res), NULL);
 	if (!repeatn_and_minmax(count, res))
-		return (free(res), ft_printf("Error\n"), NULL);
+		return (free(res), ft_putstr_fd("Error\n", 2), NULL);
 	return (res);
 }
